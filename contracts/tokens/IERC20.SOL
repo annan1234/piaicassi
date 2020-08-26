@@ -1,0 +1,13 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.6.0;
+interface IERC20{
+    function totalSupply() external view returns(uint256);
+    function balanceOf(address owner)external view returns (uint256);
+    function transfer(address reciepient , uint256 amount)external returns(bool); // tokens will transfer from callers account to receipents 
+    function allowance(address ownerOftoken , address spenderOfToken) external view returns (uint256); // returns the remainig amount of tokens of spender allowed by owner
+    function approve(address spenderOfTokens , uint256 amountApprove) external returns(bool); // approve amount by caller to spenderOfTokens
+    function transferFrom(address sender, address reciepient , uint256 amount)external returns(bool);//callerorspender send token to recipeint from sender acc.
+    event Transfer(address indexed from , address indexed to , uint256 );
+    event allowed(address indexed owner , address indexed spender , uint256);
+    
+}
