@@ -112,8 +112,9 @@ mapping(address => mapping(address => uint256)) allow;
 
     function mint(uint amount , address _add)external virtual onlyOwner returns(bool){
         require(_add != address(0));
-        TotalSupply = TotalSupply + amount;
-        balance[_add] = balance[_add] + amount;
+        uint a =amount*10**uint(decimal);
+        TotalSupply = TotalSupply + a;
+        balance[_add] = balance[_add] + a;
         return true;
     }
     
@@ -121,8 +122,9 @@ mapping(address => mapping(address => uint256)) allow;
 
     function burnToken(address from ,uint amount)external onlyOwner returns(bool){
         require(from != address(0));
-        balance[from] = balance[from] - amount;
-        TotalSupply = TotalSupply - amount;
+        uint a =amount*10**uint(decimal);
+        balance[from] = balance[from] - a;
+        TotalSupply = TotalSupply - a;
     }
 //////////////////////////////////time token ////////////////////////////////////////
                   //time for 30days

@@ -13,6 +13,7 @@ abstract contract capped is ERC20{
     
     function mint(uint amount , address _add) public override onlyOwner returns (bool){
         require(amount <= cap , "you have exceeded your limit");
+
         mint(amount , _add);
         return true;
     }
